@@ -1,0 +1,31 @@
+
+    *{
+        margin: 0px;
+        border: 0px;
+        font-family: Segoe Print;
+      
+    }
+    .color1{
+        background-color: #1d3a39;
+    }
+    .color2{
+        background-color:rgb(66,174,144);
+    }
+    .color3{
+        background-color: #e2ebf4;
+    }
+    .color4{
+        background: rgb(0,117,87);;
+    }
+    .color5{
+        background-color: rgb(155,251,217);
+    }
+    .titulo{
+        color: white;
+        
+    }
+    /* <!--imple-->*/
+    #inf1{
+        display: none;
+    }
+    
