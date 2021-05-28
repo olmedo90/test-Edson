@@ -4,7 +4,7 @@ const path = require('path');
 
 
 // settings
-app.set('port',4000);
+app.set('port',process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname,'views'));
 app.engine('html', require('ejs').renderFile);
