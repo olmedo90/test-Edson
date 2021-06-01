@@ -2,7 +2,7 @@ const express= require('express');
 const routes=express.Router();
 
 routes.get('/',(req, res)=>{
-    res.render('index.php',{titulo:'sis 414'});
+    res.render('index.html',{titulo:'sis 414'});
 });
 
 routes.get('/practicas',(req, res)=>{

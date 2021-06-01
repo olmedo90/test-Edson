@@ -4,7 +4,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 
 // settings
-//app.set('port', (process.env.port || 3000));
+//app.set('PORT', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname,'views'));
 app.engine('html', require('ejs').renderFile);
@@ -16,7 +16,7 @@ app.use(require('./routes/routes.js'));
 app.use(express.static(path.join(__dirname,'public')));
 // listen
 app.listen(PORT,()=>{
-   // console.log(__dirname+'/views/index.html');
+   
    // console.log(path.join(__dirname,'views/index.html'));
     console.log(`servidor en el puert0 ${PORT}`);
 });
