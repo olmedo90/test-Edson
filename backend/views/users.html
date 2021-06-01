@@ -1,0 +1,26 @@
+<%- include('components/header.html') %>
+<h3 class="container">Mis Usuario</h3>
+<table class="table py-4">
+    <thead>
+        <tr>
+            <th scope="col"> Nombre</th>
+            <th scope="col"> Apellido</th>
+            <th scope="col"> Email</th>
+        </tr>
+    </thead>
+    <% if (arrayUser.length > 0) {%>
+        <%arrayUser.forEach(usuarios=>{ %>
+    <tbody>
+        <tr>
+            <th><%= usuarios.nombre %></th>
+            <th><%= usuarios.apellido %></th>
+            <th><%= usuarios.email %></th>
+        </tr>
+        <%})%>
+        <% }%>
+    </tbody>
+</table>
+
+
+
+<%- include('components/footer.html') %>
