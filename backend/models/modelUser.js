@@ -5,6 +5,7 @@ const UserSchema = new Schema({
   nombre:  String,
   apellido: String,
   email:String
+
 });
 
 // Crear el modelo
