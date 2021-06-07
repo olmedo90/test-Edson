@@ -1,0 +1,81 @@
+<%- include('../components/header.html') %>
+<%- include('../components/navigation.html') %>
+<div>
+    <h3>Detalles del cliente</h3>
+    <% if(error) { %> 
+        <p><%= sms %> </p> <br><br>
+        <a href="/users" class="container btn btn-danger btn-sm"> volver a usuarios</a>
+        <% } %> 
+    <% if(!error) { %> 
+        <form id="formEdit" data-id="<%=cliente.id %> ">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="<%= cliente.nombre %> "> <br><br>
+        <label for="apellidos">Apellido</label>
+        <input type="text" id="apellidos" name="apellido" value="<%= cliente.apellido %> "><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"value="<%= cliente.email %>"  ><br><br>
+        <button type="submit" class="btn btn-success btn-sm px-3 mx-3">
+            Editar
+        </button>
+        </form>
+
+        <hr>
+        <button class="btn btn-danger btn-sm px-3 my-3 " id="btnDelete" data-id="<%=cliente.id %> ">
+            Eliminar
+        </button>
+        <% } %> 
+</div>
+
+<%- include('../components/footer.html') %>
+ <script>
+     //editar
+     const formEdit= document.querySelector('#formEdit');
+     formEdit.addEventListener('submit', async(e)=>{
+         e.preventDefault();
+        const nombre= formEdit.elements['nombre'].value;// mediante el nombre del input
+        const apellido =  document.querySelector('#apellidos').value;// mediante su ID
+        const email = document.querySelector('#email').value;
+        const id = formEdit.dataset.id;
+        // console.log(nombre);
+        // console.log(apellido);
+        try {
+            const data = await fetch(`/users/${id}`,{
+                method:'put',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({nombre, apellido, email})
+            })
+            const res = await data.json();
+            if(res.estado){
+                window.location.href = '/users';
+            }else{
+                console.log(res);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+     });
+     // eliminar
+     const btnDelete = document.querySelector('#btnDelete')
+     btnDelete.addEventListener('click',async()=>{
+         const id = btnDelete.dataset.id;
+         //console.log(id);
+         try {
+             const data = await fetch(`/users/${id}`,{
+                method: 'delete'
+             });
+             const res = await data.json();
+             if(res.estado){
+                window.location.href = '/users';
+             }else{
+                 console.log(res);
+             }
+                 
+             
+         } catch (error) {
+             console.log(error);
+         }
+     })
+
+ </script>

@@ -5,10 +5,9 @@ const UserSchema = new Schema({
   nombre:  String,
   apellido: String,
   email:String
-
 });
 
 // Crear el modelo
-const UserModel = mongoose.model('users', UserSchema);// clientes nombre de la coleccion
+const UserModel = mongoose.model('clientes', UserSchema);// clientes nombre de la coleccion
 
 module.exports = UserModel;
