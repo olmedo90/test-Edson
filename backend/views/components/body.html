@@ -35,8 +35,9 @@
                        <a class="list-group-item list-group-item-success list-group-item-action" href="javascript:void(0);" onclick="mostrar_inf();">Materiales</a>
                        <a class="list-group-item list-group-item-success list-group-item-action" href="javascript:void(0);" onclick="mostrar_inf();">Grupos</a>
                        <a class="list-group-item list-group-item-success list-group-item-action" href="javascript:void(0);" onclick="mostrar_inf_Avances();">Avances</a>
-                       <a class="list-group-item list-group-item-success list-group-item-action" href="javascript:void(0);" onclick="mostrar_inf();">Comentarios</a>
-                    </section>
+                       <a class="list-group-item list-group-item-success list-group-item-action"   data-toggle="modal" data-target="#comentario">Comentarios</a>
+
+                      </section>
                     <section class="col-lg-8  col-md-8 col-sm-8">
                         <section id="inf1" class="container py-4">
                             <h4>Horarios de las clases de Auxiliatura sis-414</h4>
@@ -45,6 +46,37 @@
                             <button onclick="ocultar_inf1();">Cerrar</button>
                         </section>
                        
+                    </section>
+                    <section class="col-lg-8  col-md-8 col-sm-8">
+
+<div class="modal fade text-dark" id="comentario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">COMENTARIOS</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/comentarios" method="POST">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">email</label>
+            <input type="email" class="form-control" id="recipient-name" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Comentario</label>
+            <textarea class="form-control" id="message-text" name="comentario"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <a href="" class="btn btn-success btn-sm">Ver comentarios</a>
+      </div>
+    </div>
+  </div>
+</div>
+
                     </section>
                 </article>
             </section>
