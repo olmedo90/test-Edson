@@ -1,0 +1,14 @@
+<%- include('../components/header.html') %>
+<%- include('../components/navigation.html') %>
+<div class=" container py-4">
+    <h3>Editar comentario</h3>
+    <form action="/comentarios/edit/<%= comentarioDB._id %> " method="POST">
+        <label for="email">Correo Electronico</label>
+        <input type="email" class="form-control" id="email" name="email" value="<%= comentarioDB.email %> "><br>
+        <label for="comentario">Coementario</label>
+        <textarea name="comentario" id="" cols="30" rows="10" class="form-control"><%= comentarioDB.comentario %> </textarea><br>
+        <button type="submit" class="btn btn-primary">Actualizar Comentario</button>
+    </form>
+
+</div>
+<%- include('../components/footer.html') %>

@@ -9,5 +9,6 @@ routes.get('/practicas',(req, res)=>{
     res.render('practicas.html',{titulo:'practicas'});
 });
 
+
 module.exports=routes;
 

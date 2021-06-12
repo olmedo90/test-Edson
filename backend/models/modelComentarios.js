@@ -3,7 +3,13 @@ const Schema = mongoose.Schema;
 
 const ComentarioSchema = new Schema({
   email:  String,
-  comentario:String
+  comentario:String,
+  estado:{
+    type: Boolean,
+    default: true
+  } 
+},{
+  versionKey: false
 });
 
 // Crear el modelo
