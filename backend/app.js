@@ -26,6 +26,8 @@ app.engine('html', require('ejs').renderFile);
 app.use('/', require('./routes/routes.js'));
 app.use('/users', require('./routes/user.js'));
 app.use('/comentarios', require('./routes/comentario.js'));
+app.use('/roles', require('./routes/roles.js'));
+
 // static files 
 app.use(express.static(path.join(__dirname,'public')));
 

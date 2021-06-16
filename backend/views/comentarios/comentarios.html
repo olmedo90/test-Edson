@@ -30,12 +30,15 @@
                         </th>
                         <th>
                             <a href="/comentarios/edit/<%= comentario.id %>" class="btn btn-info btn-sm" > Editar</a>
+                            
                         </th>
                     </tr>
                     <%})%>
                         <% }%>
                 </tbody>
     </table>
+    <a href="/comentarios/drop" class="btn btn-danger btn-sm" > eliminar todi los comentarios</a>
+   
 </div>
 
 <%- include('../components/footer.html') %>

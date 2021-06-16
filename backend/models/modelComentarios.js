@@ -7,7 +7,7 @@ const ComentarioSchema = new Schema({
   estado:{
     type: Boolean,
     default: true
-  } 
+  }
 },{
   versionKey: false
 });

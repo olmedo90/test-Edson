@@ -4,7 +4,10 @@ const Comentario = require('../models/modelComentarios.js');
 
 routes.get('/', async(req, res)=>{
     try {
-        const arrayComentarios = await Comentario.find({}).limit(2);
+
+        const arrayComentarios = await Comentario.find({});
+        // const arr = arrayComentarios.map(elemento => Object.entries(elemento));
+        // console.log(arrayComentarios);
         res.render('./comentarios/comentarios.html', 
         {titulo:'comentarios', 
         arrayComentarios
@@ -31,7 +34,7 @@ routes.post('/', async(req, res)=>{
 // eliminar 
 routes.get('/delete/:id', async(req, res)=>{
     const id = req.params.id;
-   // console.log(id);
+    //console.log(id);
     try {
          await Comentario.findOneAndDelete({_id:id});
          res.redirect('/comentarios');
@@ -67,10 +70,11 @@ routes.get('/edit/:id', async(req, res)=>{
 });
 //editar
 routes.post('/edit/:id', async(req, res)=>{
-    const id = req.params.id;
     const datos = req.body;
     console.log(datos);
     try {
+        const id = req.params.id;
+        var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
          await Comentario.update({_id : id}, datos);
        /// console.log(comentarioDB);
         res.redirect('/comentarios');
@@ -78,6 +82,17 @@ routes.post('/edit/:id', async(req, res)=>{
         console.log(error);
     }
 });
+// eliminar collection
+
+// routes.get('/drop', async(req, res)=>{
+//     try {
+//         var dbo = .db("usuarios");
+//        await dbo.dropCollection("comentarios");
+//        res.redirect('/comentarios');
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })
 
 
 module.exports = routes;
