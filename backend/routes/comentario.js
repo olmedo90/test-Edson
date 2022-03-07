@@ -2,6 +2,20 @@ const express= require('express');
 const routes=express.Router();
 const Comentario = require('../models/modelComentarios.js');
 
+routes.get('/comentados', async(req, res)=>{
+    try {
+
+        const arrayComentarios = await Comentario.find({});
+        // const arr = arrayComentarios.map(elemento => Object.entries(elemento));
+        // console.log(arrayComentarios);
+        res.send( 
+        arrayComentarios
+     );
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 routes.get('/', async(req, res)=>{
     try {
 

@@ -1,7 +1,7 @@
 <%- include('../components/header.html') %>
-<%- include('../components/navigation.html') %>
+
 <div class="container py-4">
-    <h3> Mis Comentarios</h3>
+    <h3> Comentarios</h3>
     <table class="table py-4">
         <thead class=" bg-dark text-white">
             <tr>
@@ -23,9 +23,7 @@
                         </th>
                         <th>
                           <a href="/comentarios/delete/<%= comentario.id %> " class="btn btn-danger btn-sm">Eliminar</a>
-                          <a href="/comentarios/estado/<%= comentario.id %>" class="btn <%= comentario.estado ? 'btn-success' : 'btn-warning' %> ">
-                        <%= comentario.estado ? 'Activado' : 'Desactivado' %> 
-                        </a>
+                         
                         
                         </th>
                         <th>
@@ -37,8 +35,6 @@
                         <% }%>
                 </tbody>
     </table>
-    <a href="/comentarios/drop" class="btn btn-danger btn-sm" > eliminar todi los comentarios</a>
+   
    
 </div>
-
-<%- include('../components/footer.html') %>
